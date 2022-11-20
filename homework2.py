@@ -1,3 +1,6 @@
+# Homework №2
+# Group 23
+# Andrii Sherstiuk
 import numpy as np
 import matplotlib.pyplot as plt
 
