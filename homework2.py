@@ -15,6 +15,11 @@ class Dataset:
     def __init__(self):
         self.x = np.random.rand(SIZE)
         self.t = self.x**3 - self.x**2 + 1
+        # Plot to show how the function is supposed to look like
+        plt.scatter(self.x, self.t)
+        plt.ylabel('Target')
+        plt.xlabel('Data')
+        plt.show()
 
     def get_xt(self):
         return self.x, self.t
@@ -61,7 +66,7 @@ class Layer:
         
     # Updates each unit’s parameters
     def backward_step(self, grad_activation):
-        d_relu_preactivation = np.asarray(relu(self.layer_preactivation)) 
+        d_relu_preactivation = np.asarray(relu_derivative(self.layer_preactivation)) 
         d_preact_gradient_activation = np.multiply(d_relu_preactivation, grad_activation)
 
         layer_input_T = np.transpose(self.layer_input)
